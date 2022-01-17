@@ -1,0 +1,104 @@
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+  
+}
+h1{
+    font-weight: 400;
+    font-size: 2.5rem; /* 1rem = By default 16px */
+    text-transform: uppercase;
+    margin: 0;
+}
+h2{
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin: 0;
+}
+img{
+    display: block;
+    width: 100%;
+}
+main{
+    max-width: 900px;
+    margin: auto;
+    box-shadow: 20px 0px 40px rgba(0, 0,0,0.2),
+    -20px 0px 40px rgba(0, 0,0,0.2); /*horizontal offset, Vertical Offset, Blur, Color */
+
+}
+#landing-text{
+    display: flex;
+    flex: 100 1 40vw; /* flex grow, flex shrink , viewport width */
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0rem 1rem 0rem 1rem;
+}
+#landing-text h2{
+    color: #888888;
+}
+#images0{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB3TU3KsY0EbpR6B0VNqapkoDq9zQeeX9YJA&usqp=CAU');
+ 
+}
+
+/* Button design */
+.btn{
+    padding: 0.5rem 2rem;
+    border: 2.5px #cccccc solid;
+    display: inline-block;
+    margin: 2rem 0 0;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #333333;
+    transition: background 500ms ease;
+    font: outline;
+    font-weight: bold;
+}
+.btn:hover{
+    background: tomato;
+    border: 1.5px #333333 solid;
+}
+
+#header{
+    padding: 1.5rem;
+    text-align: center;
+    background: #333333;
+    color: #ffffff;
+}
+#header h2{
+    border-left: dotted 2px white;
+    border-right: dotted 2px white;
+    display: inline-block;
+    padding: 0 1rem 0 1rem;
+}
+.caption{
+    padding: 0.8rem;
+    text-align: center;
+}
+footer{
+    text-align: center;
+    padding: 2rem 2rem;
+    margin: auto;
+    color: #333333;
+}
+footer h3{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+/* Screen sizes 500px and Up */
+@media (min-width: 500px){
+    #landing{
+        display: flex;
+        height: 100%;
+    }
+    #landing-text{
+        height: 100vh;
+    }
+    
+    #landing-images{
+        height: 100vh;
+    } 
+} 

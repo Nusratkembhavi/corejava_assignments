@@ -1,0 +1,67 @@
+1. use aggregate to calculate the total population for each city (you have to use city/state combination).
+
+ans: db.zipcodes.aggregate([{$group:{_id:{city:'$city',state:'$state'},totalpop:{$sum:'$pop'}}}])
+
+{ _id: { city: 'MC DONOUGH', state: 'NY' }, totalpop: 881 }
+{ _id: { city: 'CHESTER', state: 'NE' }, totalpop: 527 }
+{ _id: { city: 'WALLA WALLA', state: 'WA' }, totalpop: 34993 }
+{ _id: { city: 'NENANA', state: 'AK' }, totalpop: 393 }
+{ _id: { city: 'DONALDSON', state: 'MN' }, totalpop: 117 }
+{ _id: { city: 'STEPHENSBURG', state: 'KY' }, totalpop: 3153 }
+{ _id: { city: 'ARIMO', state: 'ID' }, totalpop: 333 }
+{ _id: { city: 'HILLSBORO', state: 'VA' }, totalpop: 5373 }
+{ _id: { city: 'DEERFIELD', state: 'IL' }, totalpop: 22048 }
+{ _id: { city: 'DUNMOR', state: 'KY' }, totalpop: 534 }
+{ _id: { city: 'EXETER', state: 'IL' }, totalpop: 1101 }
+{ _id: { city: 'RUSO', state: 'ND' }, totalpop: 187 }
+{ _id: { city: 'AURORA', state: 'IA' }, totalpop: 344 }
+{ _id: { city: 'DUPO', state: 'IL' }, totalpop: 5663 }
+{ _id: { city: 'EUREKA', state: 'NV' }, totalpop: 1118 }
+{ _id: { city: 'WHITEHALL', state: 'NY' }, totalpop: 5372 }
+{ _id: { city: 'ROCK SPRINGS', state: 'WY' }, totalpop: 23927 }
+{ _id: { city: 'CRAFTSBURY', state: 'VT' }, totalpop: 623 }
+{ _id: { city: 'DIXFIELD', state: 'ME' }, totalpop: 3032 }
+{ _id: { city: 'WILLISTON', state: 'SC' }, totalpop: 5011 }
+
+2.sort the results by population ,highest first.
+
+ans : db.zipcodes.aggregate([{$group:{_id:{city:'$city',state:'$state'},totalpop:{$sum:'$pop'}}},{$sort:{totalpop:-1}}])
+
+{ _id: { city: 'CHICAGO', state: 'IL' }, totalpop: 2452177 }
+{ _id: { city: 'BROOKLYN', state: 'NY' }, totalpop: 2300504 }
+{ _id: { city: 'LOS ANGELES', state: 'CA' }, totalpop: 2102295 }
+{ _id: { city: 'HOUSTON', state: 'TX' }, totalpop: 2095918 }
+{ _id: { city: 'PHILADELPHIA', state: 'PA' },
+  totalpop: 1610956 }
+{ _id: { city: 'NEW YORK', state: 'NY' }, totalpop: 1476790 }
+{ _id: { city: 'BRONX', state: 'NY' }, totalpop: 1209548 }
+{ _id: { city: 'SAN DIEGO', state: 'CA' }, totalpop: 1049298 }
+{ _id: { city: 'DETROIT', state: 'MI' }, totalpop: 963243 }
+{ _id: { city: 'DALLAS', state: 'TX' }, totalpop: 940191 }
+{ _id: { city: 'PHOENIX', state: 'AZ' }, totalpop: 890853 }
+{ _id: { city: 'MIAMI', state: 'FL' }, totalpop: 825232 }
+{ _id: { city: 'SAN JOSE', state: 'CA' }, totalpop: 816653 }
+{ _id: { city: 'SAN ANTONIO', state: 'TX' }, totalpop: 811792 }
+{ _id: { city: 'BALTIMORE', state: 'MD' }, totalpop: 733081 }
+{ _id: { city: 'SAN FRANCISCO', state: 'CA' },
+  totalpop: 723993 }
+{ _id: { city: 'MEMPHIS', state: 'TN' }, totalpop: 632837 }
+{ _id: { city: 'SACRAMENTO', state: 'CA' }, totalpop: 628279 }
+{ _id: { city: 'JACKSONVILLE', state: 'FL' }, totalpop: 610160 }
+{ _id: { city: 'ATLANTA', state: 'GA' }, totalpop: 609591 }
+
+
+3. limit the result to just the first 3 results.what are the top 3 cities in population?
+
+ans: db.zipcodes.aggregate([{$group:{_id:{city:'$city',state:'$state'},totalpop:{$sum:'$pop'}}},{$sort:{totalpop:-1}},{$limit:3}])
+
+{ _id: { city: 'CHICAGO', state: 'IL' }, totalpop: 2452177 }
+{ _id: { city: 'BROOKLYN', state: 'NY' }, totalpop: 2300504 }
+{ _id: { city: 'LOS ANGELES', state: 'CA' }, totalpop: 2102295 }
+
+4.What are the top 3 cities in population in Texas?
+
+ans: db.zipcodes.aggregate([{$match:{state:'TX'}},{$group:{_id:{city:'$city',state:'$state'},totalpop:{$sum:'$pop'}}},{$sort:{totalpop:-1}},{$limit:3}])
+{ _id: { city: 'HOUSTON', state: 'TX' }, totalpop: 2095918 }
+{ _id: { city: 'DALLAS', state: 'TX' }, totalpop: 940191 }
+{ _id: { city: 'SAN ANTONIO', state: 'TX' }, totalpop: 811792 }

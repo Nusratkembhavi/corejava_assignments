@@ -1,0 +1,86 @@
+9.
+
+DrawingApp
+
+package Com.springcore;
+
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class DrawingApp {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("Spring.xml");
+		context.registerShutdownHook();
+	     Student s =(Student) context.getBean("student");
+	     s.draw();
+	}
+
+}
+
+
+Lifecycle
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+public class Student {
+	private String type;
+
+	public Student(String type) {
+		this.type = type;
+		
+	}
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getType() {
+		return type;
+	}
+	
+	 @Resource
+	  public void setType(String type) 
+	  {
+		  this.type = type;
+	  }
+	 
+	public void draw()
+	{
+		System.out.println (" Triangle Drawn " +getType());
+	}
+	@PostConstruct
+	public void intialize()
+	{
+		System.out.println("Init Of circle");
+	}
+	@PreDestroy
+	public void destroy()
+	{
+		System.out.println("Init Of circle");
+	}
+}
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="Com.springcore"/>
+    <bean id="student" class="Com.springcore.Student">
+   <property name="type" value="iso"/>
+    </bean>
+  </beans>

@@ -1,0 +1,131 @@
+package com.spring.assign1;
+
+public class Address {
+
+	private int street;
+	private String city;
+	private String state;
+	private int zip;
+	private String country;
+	
+	public int getStreet() {
+		return street;
+	}
+	public void setStreet(int street) {
+		this.street = street;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public int getZip() {
+		return zip;
+	}
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	
+	
+	
+}
+
+--------------------------------------------------------------------------------------------------------------------
+package com.spring.assign1;
+
+public class Customer {
+
+	private int customerID;
+	private String customerName;
+	private int customerContact;
+	private Address customerAddress;
+	
+	public int getCustomerID() {
+		return customerID;
+	}
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public int getCustomerContact() {
+		return customerContact;
+	}
+	public void setCustomerContact(int customerContact) {
+		this.customerContact = customerContact;
+	}
+	public Address getCustomerAddress() {
+		return customerAddress;
+	}
+	public void setCustomerAddress(Address customerAddress) {
+		this.customerAddress = customerAddress;
+	}
+	
+	public void getDetails()
+	{
+		System.out.println("Customer Details are :");
+                System.out.println(getCustomerID()+", "+getCustomerName()+", "+getCustomerContact());
+//		System.out.println("Street no is : "+getCustomerAddress().getStreet());
+//		System.out.println("City is : "+getCustomerAddress().getCity());
+//		System.out.println("State is : "+getCustomerAddress().getState());
+//		System.out.println("Zipcode is : "+getCustomerAddress().getZip());
+//		System.out.println("Country is : "+getCustomerAddress().getCountry());
+	}
+	
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package com.spring.assign1;
+
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestClass {
+   public static void main(String[] args) {
+	   ApplicationContext context = new ClassPathXmlApplicationContext("assign1_cons.xml");
+	   Customer customer = (Customer) context.getBean("customer");
+	   customer.getDetails();
+}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+   <bean id="customer" class="com.spring.assign1.Customer">
+   <property name="customerID" value="456786"/>
+    <property name="customerName" value="Nusrat"/>
+     <property name="customerContact" value="987654"/>
+    <property name="customerAddress" ref="customerAddress"/>
+    
+   </bean>
+   <bean id="customerAddress" class="com.spring.assign1.Address">
+      <property name="street" value="19"/>
+       <property name="city" value="bijapur"/>
+        <property name="state" value="KA"/>
+         <property name="zip" value="586101"/>
+          <property name="country" value="India"/>
+          
+   </bean>
+</beans>

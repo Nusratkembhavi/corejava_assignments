@@ -1,0 +1,194 @@
+* Styling the body element
+        like body color and margin */
+         
+       
+        
+
+        body{
+            margin: 0;
+            background-color: #2E4057;
+        }
+        
+        #main{
+            width: 95%;
+            margin: auto;
+            background-color: #000000;   
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        #bg-image{
+            background-image: url("https://wallpapercave.com/wp/wp2048461.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 150vh;
+            background-position: center ;
+            background-size: cover;
+            margin: auto;
+            padding: 0;
+        }
+        
+        #main-header{
+            text-align: center;
+            background-color: #A62639;
+        }
+        
+        #main-header > p{
+            margin: 0;
+            padding-bottom: 5px;
+            color: #F4FAFF;
+        
+        }
+        
+        #title{
+            margin: 0;
+            text-align: center;
+            color: #F4FAFF;
+            font-family: "tesla";
+        }
+        
+        .tribute-heading{
+            background-color: #F4FAFF ;
+            margin: 0;
+            color:#2c73ca ;
+            font-size: 2em;
+            text-align: center;
+            padding: 2px 0;
+        }
+        
+        /* Styling the Title and giving
+        shadow to the title */
+        #title {
+            text-align: center;
+            text-shadow: 5px 5px 10px white;
+            font-size: 10vh;
+        }
+ 
+        /* Setting font color and font
+        size of the image-caption */
+        #caption {
+            font-size: 17px;
+            font-family: Gill Sans;
+            color: rgb(212, 191, 191)
+        }
+        tribute-heading{
+            background-color: #F4FAFF ;
+            margin: 0;
+            color:#176cc2 ;
+            font-size: 2em;
+            text-align: center;
+            padding: 2px 0;
+        }
+        
+        #tribute-info{
+            background-color: #534d4d;
+            color: #F4FAFF;
+        }
+        
+        .tri-para{
+            margin-left: 0.8em;
+            margin-right: 0.8em;
+            margin-top: 0;
+            margin-bottom: 0.3em;
+        }
+        
+        .para{
+            margin: 0.8em;
+        }
+        
+        .companies-heading{
+            color: #dcdf5d;
+            float: left;
+            list-style-type: disc;
+            margin: 0.8em 0 0.5em 0.8em;
+            font-size: larger;
+        }
+        
+        .clr{
+            clear: both;
+        }
+        
+        #image{
+            max-width: 100%;
+            
+            height: auto;
+            margin: 0 auto;
+            
+           
+        }
+        
+        #img-caption{
+            font-size: larger;
+            font-family: "tesla";
+            text-align: center;
+        }
+ 
+        /* Styling the content of the page like-
+        padding, font-size, font color etc.*/
+        div#tribute-data {
+          color: snow;
+            font-family: Georgia;
+            padding: 25px 25px;
+            margin: 11px;
+            margin-top: 50px;
+        }
+ 
+        /* Styling the title of the content */
+        h1 {
+            font-size: 45px;
+            color: white;
+            text-align: center;
+            text-shadow: 5px 5px 10px black;
+        }
+
+        h4{
+            color: rgb(126, 121, 121);
+            text-align: center;
+            text-shadow: white;
+
+        }
+
+
+        /* Styling the link provided at the end */
+        #link-para{
+            text-align: center;
+            color: white;
+            margin-bottom: 1em;
+        }
+        
+        #tribute-link{
+            text-align: center;
+            text-decoration: none;
+            color: rgb(0, 26, 255);
+            font-weight: bold;
+        
+        }
+        
+        #tribute-link:hover{
+            color: chartreuse;
+            font-weight: normal;
+        }
+        
+        #main-footer{
+            background-color: #e70808;
+            text-align: center;
+            color: #F4FAFF;
+        }
+        
+        #footer-para{
+            padding: 1em 0;
+            margin: 0;
+        }
+        
+        #footer-para > small > a{
+            text-decoration: none;
+            text-align: center;
+            color: #F4FAFF;
+            font-weight: bold;
+            padding: 5px;
+            border: 1px #F4FAFF solid;
+        }
+        
+        #footer-para > small > a:hover{
+            border: 1px #F4FAFF solid;
+            font-weight: normal;
+        }

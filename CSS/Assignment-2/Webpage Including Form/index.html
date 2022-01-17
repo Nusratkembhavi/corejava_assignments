@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+            <title>Webpage Including Form</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+
+
+
+<div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center" >Question Paper</h1>
+      <p id="description" class="description text-center">
+        Complete your Test with proper details.
+      </p>
+    </header>
+    <form id="survey-form">
+      <div class="form-group">
+        <label id="name-label" for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-control"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label id="email-label" for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form-control"
+          placeholder="Enter your Email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label id="number-label" for="number"
+          >Phone Number<span class="clue">(+91)</span></label
+        >
+        <input
+     
+          name="number"
+          id="number"
+          class="form-control"
+          placeholder="Enter Your Number"
+        />
+        <br>
+
+        <div class="form-group">
+            <label id="date-label" for="date"
+              >Todays Date</label
+            >
+            <input
+              type="date"
+              
+            />
+      
+
+      
+  <br>
+
+      <div class="form-group">
+        <p>Which is the correct implementation class of BeanFactory? </p>
+        <label>
+          <input
+            name="user-recommend"
+            value="definitely"
+            type="radio"
+            class="input-radio"
+            checked
+          />XMLBeanFactory</label
+        >
+        <label>
+          <input
+            name="user-recommend"
+            value="maybe"
+            type="radio"
+            class="input-radio"
+          />ClassPathBeanFactory</label
+        >
+  
+        <label
+          ><input
+            name="user-recommend"
+            value="not-sure"
+            type="radio"
+            class="input-radio"
+          />FileSystemBeanFactory</label
+        >
+      </div>
+
+
+      <div class="form-group">
+        <p>Which class acts as IoC Container?</p>
+        <label>
+          <input
+            name="user-recommend"
+            value="definitely"
+            type="radio"
+            class="input-radio"
+            checked
+          />ServletContext</label
+        >
+        <label>
+          <input
+            name="user-recommend"
+            value="maybe"
+            type="radio"
+            class="input-radio"
+          />DispatchServlet</label
+        >
+  
+        <label
+          ><input
+            name="user-recommend"
+            value="not-sure"
+            type="radio"
+            class="input-radio"
+          />ApplicationContext</label
+        >
+      </div>
+  
+
+      <div class="form-group">
+        <p>Any comments or suggestions?</p>
+        <textarea
+          id="comments"
+          class="input-textarea"
+          name="comment"
+          placeholder="Enter your comment here..."
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" id="submit" class="submit-button">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

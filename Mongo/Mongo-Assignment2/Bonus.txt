@@ -1,0 +1,31 @@
+1.Write a query to get the average city population for each state.
+
+ans:   db.zipcodes.aggregate([{$group:{_id:{city:'$city',state:'$state'},Avgpop:{$avg:'$pop'}}}])
+{ _id: { city: 'CLIFF ISLAND', state: 'ME' }, Avgpop: 87 }
+{ _id: { city: 'CHEMUNG', state: 'NY' }, Avgpop: 615 }
+{ _id: { city: 'OFFUTT A F B', state: 'NE' }, Avgpop: 2894 }
+{ _id: { city: 'LEECO', state: 'KY' }, Avgpop: 66 }
+{ _id: { city: 'RANGER', state: 'TX' }, Avgpop: 3414 }
+{ _id: { city: 'MILL SPRING', state: 'MO' }, Avgpop: 732 }
+{ _id: { city: 'POINT MUGU NAWC', state: 'CA' }, Avgpop: 1707 }
+{ _id: { city: 'GROTON', state: 'NY' }, Avgpop: 5940 }
+{ _id: { city: 'CANTON', state: 'MN' }, Avgpop: 1390 }
+{ _id: { city: 'PAMPLICO', state: 'SC' }, Avgpop: 6291 }
+{ _id: { city: 'RAWLINGS', state: 'VA' }, Avgpop: 527 }
+{ _id: { city: 'CHILHOWEE', state: 'MO' }, Avgpop: 951 }
+{ _id: { city: 'NEW CITY', state: 'NY' }, Avgpop: 33340 }
+{ _id: { city: 'CALHOUN', state: 'MO' }, Avgpop: 795 }
+{ _id: { city: 'ARNETT', state: 'WV' }, Avgpop: 2073 }
+{ _id: { city: 'SOUTH WAYNE', state: 'WI' }, Avgpop: 1444 }
+{ _id: { city: 'BERNALILLO', state: 'NM' }, Avgpop: 7113 }
+{ _id: { city: 'MONTE SERENO', state: 'CA' }, Avgpop: 25881 }
+{ _id: { city: 'OTIS', state: 'LA' }, Avgpop: 231 }
+{ _id: { city: 'SELMA', state: 'CA' }, Avgpop: 21798 }
+
+
+2. What are the top 3 states in terms of average city population?
+
+ans: db.zipcodes.aggregate([{$group:{_id:{city:'$city',state:'$state'},Avgpop:{$avg:'$pop'}}},{$sort:{Avgpop:-1}},{$limit:3}])
+{ _id: { city: 'BELL GARDENS', state: 'CA' }, Avgpop: 99568 }
+{ _id: { city: 'NORWALK', state: 'CA' }, Avgpop: 94188 }
+{ _id: { city: 'ARLETA', state: 'CA' }, Avgpop: 88114 }
